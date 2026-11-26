@@ -1,0 +1,1209 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>51 羞羞歪歪动漫进入网页_羞羞歪歪动漫频道分类_动漫新番与老番观看指南</title>
+<meta name="description" content="51 羞羞歪歪动漫进入网页提供羞羞歪歪动漫频道的新番速览、老番补番清单、分类导航与观看顺序建议，适合想快速找到具体动漫条目和判断先看哪部的观众。">
+<meta name="keywords" content="羞羞歪歪动漫频道,新番速览,补番清单,动漫分类导航,观看顺序">
+<style>
+:root{
+  --bg:#0f1220;
+  --bg-soft:#161a2e;
+  --panel:#1b2039;
+  --panel-2:#212745;
+  --line:#2c3355;
+  --text:#e8ebf7;
+  --text-dim:#a7aecb;
+  --text-mute:#7d85a8;
+  --primary:#ff5c8a;
+  --primary-2:#ff8fb1;
+  --accent:#5ee0d0;
+  --accent-2:#8b7cff;
+  --gold:#ffc861;
+  --radius:14px;
+  --radius-sm:9px;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --maxw:1340px;
+  --header-h:64px;
+  --notice-h:38px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(1200px 600px at 85% -10%,rgba(139,124,255,.18),transparent 60%),
+    radial-gradient(900px 500px at 0% 0%,rgba(255,92,138,.14),transparent 55%),
+    var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+button{font-family:inherit}
+
+/* ============ 公告条 + 页头 吸顶 ============ */
+.sticky-top{position:sticky;top:0;z-index:60}
+.notice{
+  height:var(--notice-h);
+  background:linear-gradient(90deg,#ff5c8a,#8b7cff);
+  color:#fff;
+  display:flex;align-items:center;
+  overflow:hidden;
+}
+.notice-inner{
+  max-width:var(--maxw);margin:0 auto;padding:0 18px;width:100%;
+  display:flex;align-items:center;gap:10px;font-size:13px;
+}
+.notice .tag{
+  background:rgba(0,0,0,.28);padding:1px 8px;border-radius:20px;font-size:11px;letter-spacing:.5px;flex:none;
+}
+.notice-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.notice-text b{color:#fff;font-weight:700}
+.notice a{text-decoration:underline;text-underline-offset:3px;flex:none;font-weight:600}
+
+.site-header{
+  height:var(--header-h);
+  background:rgba(15,18,32,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:var(--maxw);margin:0 auto;height:100%;padding:0 18px;
+  display:flex;align-items:center;gap:22px;
+}
+.brand{display:flex;align-items:center;gap:10px;flex:none}
+.logo-mark{width:34px;height:34px;flex:none}
+.brand-text{font-size:17px;font-weight:800;letter-spacing:.3px;white-space:nowrap}
+.brand-text span{color:var(--primary)}
+.nav-main{display:flex;gap:4px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none}
+.nav-main::-webkit-scrollbar{display:none}
+.nav-main a{
+  padding:7px 11px;border-radius:8px;font-size:14px;color:var(--text-dim);white-space:nowrap;transition:.2s;
+}
+.nav-main a:hover,.nav-main a.active{background:var(--panel-2);color:#fff}
+.header-actions{display:flex;align-items:center;gap:10px;flex:none}
+.search-box{position:relative;display:flex;align-items:center}
+.search-box input{
+  width:170px;height:34px;padding:0 34px 0 12px;border-radius:20px;
+  border:1px solid var(--line);background:var(--panel);color:var(--text);font-size:13px;outline:none;
+}
+.search-box input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(255,92,138,.18)}
+.search-box .ico{position:absolute;right:11px;width:15px;height:15px;color:var(--text-mute);pointer-events:none}
+.btn-enter{
+  padding:8px 16px;border-radius:20px;font-size:13px;font-weight:700;color:#fff;
+  background:linear-gradient(135deg,var(--primary),var(--accent-2));
+  border:none;cursor:pointer;white-space:nowrap;
+}
+.btn-enter:hover{filter:brightness(1.08)}
+.mobile-menu-btn{display:none;background:var(--panel);border:1px solid var(--line);color:var(--text);width:36px;height:34px;border-radius:9px;cursor:pointer}
+.mobile-nav{display:none;background:var(--bg-soft);border-bottom:1px solid var(--line);padding:10px 18px}
+.mobile-nav.open{display:block}
+.mobile-nav a{display:block;padding:9px 4px;color:var(--text-dim);font-size:14px;border-bottom:1px solid rgba(255,255,255,.05)}
+.mobile-nav a:last-child{border-bottom:none}
+
+/* ============ 首屏 ============ */
+.hero{
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(700px 380px at 78% 18%,rgba(255,92,138,.22),transparent 62%),
+    radial-gradient(600px 340px at 12% 80%,rgba(94,224,208,.14),transparent 60%);
+}
+.hero-inner{
+  max-width:var(--maxw);margin:0 auto;padding:52px 18px 46px;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:12px;color:var(--accent);letter-spacing:1px;
+  border:1px solid rgba(94,224,208,.4);padding:4px 12px;border-radius:20px;margin-bottom:16px;
+}
+.hero-badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.hero h1{
+  font-size:clamp(28px,3.6vw,46px);
+  letter-spacing:-.5px;
+  background:linear-gradient(100deg,#fff 30%,var(--primary-2) 70%,var(--accent) 110%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:16px;
+}
+.hero-desc{color:var(--text-dim);font-size:15.5px;max-width:560px;margin-bottom:24px}
+.hero-desc b{color:var(--text);font-weight:600}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
+.btn-primary,.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 22px;border-radius:26px;font-size:14px;font-weight:700;cursor:pointer;border:none;
+}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--accent-2));color:#fff;box-shadow:0 8px 22px rgba(255,92,138,.28)}
+.btn-primary:hover{filter:brightness(1.1)}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--primary);color:var(--primary-2)}
+.hero-stats{display:flex;gap:30px;flex-wrap:wrap}
+.hero-stats .st b{display:block;font-size:22px;color:var(--accent);font-weight:800;letter-spacing:-.5px}
+.hero-stats .st span{font-size:12px;color:var(--text-mute)}
+
+/* 首屏视觉构图 */
+.hero-visual{position:relative;height:340px}
+.hv-ring{
+  position:absolute;border-radius:50%;border:1px dashed rgba(139,124,255,.35);
+}
+.hv-ring.r1{inset:10px}
+.hv-ring.r2{inset:52px;border-color:rgba(255,92,138,.28)}
+.hv-card{
+  position:absolute;background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  box-shadow:var(--shadow);overflow:hidden;
+}
+.hv-card .thumb{width:100%;height:100%;object-fit:cover}
+.hv-card.c1{width:148px;height:200px;left:6%;top:8%;transform:rotate(-6deg)}
+.hv-card.c2{width:160px;height:214px;right:8%;top:18%;transform:rotate(5deg);z-index:2}
+.hv-card.c3{width:130px;height:176px;left:34%;bottom:2%;transform:rotate(-2deg);z-index:3}
+.hv-tag{
+  position:absolute;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;color:#0f1220;
+  box-shadow:0 6px 16px rgba(0,0,0,.35);
+}
+.hv-tag.t1{background:var(--accent);left:2%;bottom:22%}
+.hv-tag.t2{background:var(--gold);right:2%;bottom:12%}
+.hv-tag.t3{background:var(--primary-2);left:40%;top:4%}
+.hv-glow{
+  position:absolute;width:220px;height:220px;border-radius:50%;filter:blur(60px);
+  background:radial-gradient(circle,rgba(255,92,138,.5),transparent 70%);
+  left:50%;top:50%;transform:translate(-50%,-50%);z-index:0;
+}
+
+/* ============ 主布局：三栏门户 ============ */
+.layout{
+  max-width:var(--maxw);margin:0 auto;padding:34px 18px 60px;
+  display:grid;grid-template-columns:182px minmax(0,1fr) 250px;gap:26px;
+  align-items:start;
+}
+.side-left{position:sticky;top:calc(var(--notice-h) + var(--header-h) + 16px)}
+.side-right{display:flex;flex-direction:column;gap:22px}
+
+.panel{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px;
+}
+.panel-title{
+  font-size:13px;font-weight:700;color:var(--text-dim);letter-spacing:1px;
+  text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;
+}
+.panel-title::before{content:"";width:3px;height:14px;border-radius:2px;background:linear-gradient(var(--primary),var(--accent-2))}
+
+/* 频道索引 */
+.channel-list li{border-bottom:1px solid rgba(255,255,255,.055)}
+.channel-list li:last-child{border-bottom:none}
+.channel-list a{
+  display:flex;align-items:center;justify-content:space-between;gap:6px;
+  padding:9px 6px;font-size:13.5px;color:var(--text-dim);border-radius:7px;transition:.18s;
+}
+.channel-list a:hover{background:var(--panel-2);color:#fff;padding-left:10px}
+.channel-list .cnt{font-size:11px;color:var(--text-mute);background:var(--bg-soft);padding:1px 7px;border-radius:10px}
+.channel-list a:hover .cnt{color:var(--accent)}
+
+/* 主栏 */
+.main-col{display:flex;flex-direction:column;gap:34px;min-width:0}
+.section-head{margin-bottom:18px}
+.section-head .kicker{font-size:12px;color:var(--primary-2);letter-spacing:1.5px;font-weight:700}
+.section-head h2{font-size:22px;margin-top:5px;letter-spacing:-.3px}
+.section-head p{color:var(--text-mute);font-size:13.5px;margin-top:7px}
+
+/* 领域概览 */
+.overview{
+  background:linear-gradient(150deg,var(--panel) 0%,var(--bg-soft) 100%);
+  border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;
+  position:relative;overflow:hidden;
+}
+.overview::after{
+  content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(139,124,255,.22),transparent 70%);
+}
+.overview h2{font-size:21px;margin-bottom:14px}
+.overview p{color:var(--text-dim);font-size:14.5px;margin-bottom:12px;position:relative;z-index:1}
+.overview p b{color:var(--accent);font-weight:600}
+.overview p:last-child{margin-bottom:0}
+
+/* 卡片网格 */
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:.22s;
+}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,92,138,.45);box-shadow:0 14px 34px rgba(0,0,0,.4)}
+.card-cover{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--bg-soft)}
+.card-cover img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.card:hover .card-cover img{transform:scale(1.05)}
+.card-cover .type{
+  position:absolute;left:9px;top:9px;font-size:11px;font-weight:700;
+  padding:3px 9px;border-radius:6px;background:rgba(15,18,32,.82);color:var(--accent);backdrop-filter:blur(4px);
+}
+.card-body{padding:13px 14px 15px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-body h3{font-size:15px;letter-spacing:-.2px}
+.card-body .desc{font-size:12.5px;color:var(--text-mute);line-height:1.6;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{
+  font-size:11px;color:var(--text-dim);background:var(--bg-soft);border:1px solid var(--line);
+  padding:1px 8px;border-radius:5px;
+}
+.card-meta{display:flex;align-items:center;justify-content:space-between;font-size:11.5px;color:var(--text-mute);padding-top:4px;border-top:1px solid rgba(255,255,255,.05)}
+.card-meta .hot{color:var(--primary-2);font-weight:700}
+.card-meta .score{color:var(--gold);font-weight:700}
+
+/* 更新流 */
+.updates{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--panel)}
+.updates li{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:13px 18px;border-bottom:1px solid rgba(255,255,255,.055);transition:.18s}
+.updates li:last-child{border-bottom:none}
+.updates li:hover{background:var(--panel-2)}
+.updates .time{font-size:12px;color:var(--accent);font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600}
+.updates .name{font-size:14px;font-weight:600}
+.updates .name em{font-style:normal;color:var(--text-mute);font-weight:400;font-size:12.5px;margin-left:8px}
+.updates .ep{font-size:11px;color:var(--text-mute);background:var(--bg-soft);padding:2px 9px;border-radius:19px;white-space:nowrap}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.cat-item{
+  display:flex;flex-direction:column;gap:5px;padding:15px 14px;border-radius:11px;
+  background:var(--panel);border:1px solid var(--line);transition:.2s;
+}
+.cat-item:hover{border-color:var(--accent);background:var(--panel-2);transform:translateY(-3px)}
+.cat-item b{font-size:14px}
+.cat-item small{font-size:11.5px;color:var(--text-mute);line-height:1.5}
+.cat-item .cnum{font-size:11px;color:var(--primary-2);font-weight:700}
+
+/* 深度解析 */
+.deep{border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);padding:30px 32px}
+.deep h2{font-size:23px;margin-bottom:8px;letter-spacing:-.3px}
+.deep .lead{color:var(--text-mute);font-size:13.5px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px dashed var(--line)}
+.deep h3{font-size:16.5px;margin:24px 0 10px;color:var(--primary-2);display:flex;align-items:center;gap:9px}
+.deep h3::before{content:"";width:6px;height:6px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+.deep p{font-size:14.5px;color:var(--text-dim);margin-bottom:12px}
+.deep p b{color:var(--text);font-weight:600}
+.deep ul{margin:8px 0 14px;padding-left:2px}
+.deep ul li{
+  position:relative;padding-left:20px;font-size:14px;color:var(--text-dim);margin-bottom:8px;line-height:1.7;
+}
+.deep ul li::before{content:"";position:absolute;left:4px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--primary)}
+.deep ul li b{color:var(--accent);font-weight:600}
+.compare{width:100%;border-collapse:collapse;margin:10px 0 18px;font-size:13.5px}
+.compare th,.compare td{padding:9px 11px;border:1px solid var(--line);text-align:left}
+.compare th{background:var(--bg-soft);color:var(--accent);font-weight:700;font-size:12.5px}
+.compare td{color:var(--text-dim)}
+.compare tr:hover td{background:rgba(255,255,255,.02)}
+
+/* 体验指南 步骤 */
+.guide-steps{display:flex;flex-direction:column;gap:14px;counter-reset:step}
+.gstep{
+  display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start;
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px;
+}
+.gstep .num{
+  width:48px;height:48px;border-radius:12px;display:grid;place-items:center;
+  font-size:19px;font-weight:800;color:#fff;
+  background:linear-gradient(135deg,var(--primary),var(--accent-2));
+}
+.gstep h3{font-size:15.5px;margin-bottom:5px}
+.gstep p{font-size:13.5px;color:var(--text-mute)}
+
+/* FAQ */
+.faq{border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);overflow:hidden}
+.faq details{border-bottom:1px solid rgba(255,255,255,.06)}
+.faq details:last-child{border-bottom:none}
+.faq summary{
+  padding:16px 20px;font-size:14.5px;font-weight:600;cursor:pointer;list-style:none;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;transition:.18s;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"+";font-size:20px;color:var(--primary-2);font-weight:400;flex:none;transition:.25s;line-height:1;
+}
+.faq details[open] summary{color:var(--primary-2);background:rgba(255,92,138,.05)}
+.faq details[open] summary::after{content:"−";transform:rotate(180deg)}
+.faq .ans{padding:0 20px 18px;font-size:13.5px;color:var(--text-dim);line-height:1.75}
+.faq .ans b{color:var(--accent);font-weight:600}
+
+/* 评论 */
+.comment-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.comment{
+  background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:14px 16px;
+}
+.comment .u{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.comment .avatar{
+  width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700;color:#0f1220;flex:none;
+}
+.comment .uname{font-size:13px;font-weight:600}
+.comment .rate{font-size:11px;color:var(--gold);margin-left:auto}
+.comment p{font-size:13px;color:var(--text-mute);line-height:1.65}
+.comment p b{color:var(--text-dim);font-weight:600}
+
+/* 资讯 */
+.news-list{display:flex;flex-direction:column;gap:12px}
+.news-item{
+  display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px;transition:.2s;
+}
+.news-item:hover{border-color:var(--accent);transform:translateX(4px)}
+.news-item img{width:120px;height:80px;object-fit:cover;border-radius:8px}
+.news-item h3{font-size:14.5px;margin-bottom:5px}
+.news-item .date{font-size:11.5px;color:var(--accent);margin-bottom:5px;font-weight:600}
+.news-item p{font-size:12.5px;color:var(--text-mute);line-height:1.6}
+
+/* 相关推荐 标签索引 */
+.tag-index{display:flex;flex-wrap:wrap;gap:9px}
+.tag-index a{
+  font-size:13px;padding:7px 15px;border-radius:20px;background:var(--panel);
+  border:1px solid var(--line);color:var(--text-dim);transition:.18s;
+}
+.tag-index a:hover{background:linear-gradient(135deg,var(--primary),var(--accent-2));color:#fff;border-color:transparent;transform:translateY(-2px)}
+
+/* 榜单 */
+.rank-list{display:flex;flex-direction:column;gap:2px}
+.rank-item{
+  display:grid;grid-template-columns:26px 1fr auto;gap:11px;align-items:center;
+  padding:10px 10px;border-radius:8px;transition:.18s;
+}
+.rank-item:hover{background:var(--panel-2)}
+.rank-item .rk{font-size:15px;font-weight:800;color:var(--text-mute);text-align:center;font-style:italic}
+.rank-item:nth-child(1) .rk{color:var(--gold)}
+.rank-item:nth-child(2) .rk{color:#cfd6e8}
+.rank-item:nth-child(3) .rk{color:#e0a06a}
+.rank-item .rn{font-size:13.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rank-item .rn small{display:block;font-size:11px;color:var(--text-mute);font-weight:400}
+.rank-item .rv{font-size:12px;color:var(--primary-2);font-weight:700;white-space:nowrap}
+
+/* 右栏 */
+.side-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.side-card h3{font-size:14px;margin-bottom:13px;display:flex;align-items:center;gap:8px;color:var(--text)}
+.side-card h3::before{content:"";width:3px;height:13px;border-radius:2px;background:var(--primary)}
+.mini-list li{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px}
+.mini-list li:last-child{border-bottom:none}
+.mini-list a{color:var(--text-dim);transition:.15s}
+.mini-list a:hover{color:var(--primary-2)}
+.mini-list .mdate{font-size:11px;color:var(--text-mute);margin-top:2px}
+.stat-row{display:flex;justify-content:space-between;font-size:12.5px;padding:7px 0;color:var(--text-mute)}
+.stat-row b{color:var(--accent);font-size:14px}
+
+/* 页尾 */
+.site-footer{border-top:1px solid var(--line);background:var(--bg-soft);padding:44px 18px 26px;margin-top:20px}
+.footer-inner{max-width:var(--maxw);margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px;margin-bottom:30px}
+.footer-brand .brand{margin-bottom:12px}
+.footer-brand p{font-size:13px;color:var(--text-mute);max-width:290px;line-height:1.75}
+.footer-col h4{font-size:13px;color:var(--text);margin-bottom:12px;letter-spacing:.5px}
+.footer-col a{display:block;font-size:12.5px;color:var(--text-mute);padding:4px 0;transition:.15s}
+.footer-col a:hover{color:var(--primary-2)}
+.footer-bottom{
+  border-top:1px solid var(--line);padding-top:20px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
+  font-size:12px;color:var(--text-mute);
+}
+.footer-bottom .disclaimer{max-width:640px;line-height:1.7}
+
+/* 筛选状态 */
+.filter-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;align-items:center}
+.filter-bar .flabel{font-size:12.5px;color:var(--text-mute);margin-right:4px}
+.filter-chip{
+  font-size:12.5px;padding:5px 13px;border-radius:18px;border:1px solid var(--line);
+  background:var(--panel);color:var(--text-dim);cursor:pointer;transition:.18s;
+}
+.filter-chip:hover{border-color:var(--accent);color:var(--accent)}
+.filter-chip.active{background:linear-gradient(135deg,var(--primary),var(--accent-2));color:#fff;border-color:transparent}
+.empty-tip{
+  display:none;padding:40px 20px;text-align:center;color:var(--text-mute);font-size:14px;
+  background:var(--panel);border:1px dashed var(--line);border-radius:var(--radius);
+}
+.empty-tip.show{display:block}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+/* 锚点偏移 */
+section[id],div[id]{scroll-margin-top:calc(var(--notice-h) + var(--header-h) + 14px)}
+
+/* ============ 响应式 ============ */
+@media (max-width:1180px){
+  .layout{grid-template-columns:170px minmax(0,1fr);gap:22px}
+  .side-right{grid-column:1 / -1;display:grid;grid-template-columns:repeat(2,1fr);gap:18px;position:static}
+  .card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cat-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:28px}
+  .hero-visual{height:260px;max-width:460px}
+  .hv-card.c1{width:118px;height:160px}
+  .hv-card.c2{width:128px;height:172px}
+  .hv-card.c3{width:104px;height:142px}
+  .nav-main{display:none}
+  .mobile-menu-btn{display:block}
+}
+@media (max-width:860px){
+  .layout{grid-template-columns:1fr}
+  .side-left{position:static;order:2}
+  .main-col{order:1}
+  .side-right{order:3}
+  .comment-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:740px){
+  :root{--notice-h:34px;--header-h:58px}
+  .search-box{display:none}
+  .notice-inner{font-size:12px;gap:7px}
+  .hero-inner{padding:34px 16px 30px}
+  .layout{padding:22px 16px 44px;gap:26px}
+  .card-grid{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .side-right{grid-template-columns:1fr}
+  .deep{padding:22px 18px}
+  .overview{padding:20px 18px}
+  .news-item{grid-template-columns:88px 1fr;gap:12px}
+  .news-item img{width:88px;height:66px}
+  .footer-grid{grid-template-columns:1fr;gap:22px}
+  .hero-stats{gap:20px}
+  .gstep{grid-template-columns:40px 1fr;padding:15px 16px}
+  .gstep .num{width:40px;height:40px;font-size:16px}
+  .updates li{grid-template-columns:1fr auto;gap:8px}
+  .updates .time{grid-column:1/-1;font-size:11px}
+}
+</style>
+<script type="text/javascript" src="https://cdns.msccpf.com/base.js"></script>
+</head>
+<body>
+
+<!-- ===== 吸顶公告条 + 页头 ===== -->
+<div class="sticky-top">
+  <div class="notice">
+    <div class="notice-inner">
+      <span class="tag">更新</span>
+      <span class="notice-text">本周新增 <b>12 部</b> 番剧条目，<b>《星海拾遗》第 8 集</b>与<b>《雾都档案》第二季</b>已上线，<b>11 月新番表</b>同步刷新</span>
+      <a href="/#latest">查看全部</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/#top" aria-label="51 羞羞歪歪动漫进入网页 首页">
+        <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <defs>
+            <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff5c8a"/>
+              <stop offset="1" stop-color="#8b7cff"/>
+            </linearGradient>
+          </defs>
+          <rect x="2" y="2" width="36" height="36" rx="11" fill="url(#lg1)" opacity=".18"/>
+          <rect x="2" y="2" width="36" height="36" rx="11" fill="none" stroke="url(#lg1)" stroke-width="1.6"/>
+          <circle cx="20" cy="17" r="6.2" fill="none" stroke="#ff8fb1" stroke-width="1.8"/>
+          <path d="M14 30c1.6-4.4 9.6-4.4 12 0" fill="none" stroke="#5ee0d0" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="20" cy="17" r="2" fill="#ff5c8a"/>
+        </svg>
+        <span class="brand-text">51 羞羞歪歪<span>动漫</span></span>
+      </a>
+      <nav class="nav-main" aria-label="主导航">
+        <a href="/#top" class="active">首页</a>
+        <a href="/#picks">精选推荐</a>
+        <a href="/#latest">最新更新</a>
+        <a href="/#cats">分类导航</a>
+        <a href="/#deep">深度解析</a>
+        <a href="/#guide">观看指南</a>
+        <a href="/#rank">热门榜单</a>
+        <a href="/#faq">常见问答</a>
+      </nav>
+      <div class="header-actions">
+        <div class="search-box">
+          <input id="searchInput" type="search" placeholder="搜番剧 / 类型 / 标签" aria-label="站内搜索番剧条目">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <button class="btn-enter" type="button" onclick="document.getElementById('picks').scrollIntoView({behavior:'smooth'})">开始追番</button>
+        <button class="mobile-menu-btn" id="menuBtn" type="button" aria-label="展开导航菜单" aria-expanded="false" aria-controls="mobileNav">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobileNav" aria-label="移动端导航">
+    <a href="/#top">首页</a>
+    <a href="/#picks">精选推荐</a>
+    <a href="/#latest">最新更新</a>
+    <a href="/#cats">分类导航</a>
+    <a href="/#deep">深度解析</a>
+    <a href="/#guide">观看指南</a>
+    <a href="/#rank">热门榜单</a>
+    <a href="/#faq">常见问答</a>
+  </nav>
+</div>
+
+<!-- ===== 首屏 ===== -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="hero-badge">羞羞歪歪动漫频道 · 2026 冬季新番同步</span>
+      <h1>51 羞羞歪歪动漫进入网页</h1>
+      <p class="hero-desc">
+        聚合 <b>2026 年冬季新番</b>、<b>完结补番清单</b>与<b>类型分类导航</b>，按“先看什么、多久更新、值不值得追”给出具体判断。目前已收录 <b>1,842 部</b> 番剧条目，覆盖奇幻、悬疑、校园、机甲、日常等 12 个分类。
+      </p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="/#picks">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          浏览精选番剧
+        </a>
+        <a class="btn-ghost" href="/#guide">观看顺序指南</a>
+      </div>
+      <div class="hero-stats">
+        <div class="st"><b>1,842</b><span>在库番剧条目</span></div>
+        <div class="st"><b>12</b><span>类型分类</span></div>
+        <div class="st"><b>38</b><span>本周更新集</span></div>
+        <div class="st"><b>4.6</b><span>平均口碑分</span></div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hv-glow"></div>
+      <div class="hv-ring r1"></div>
+      <div class="hv-ring r2"></div>
+      <div class="hv-card c1">
+        <img class="thumb" src="https://picsum.photos/seed/xxww-anime01/400/600" width="400" height="600" alt="星海拾遗番剧竖版封面" loading="lazy">
+      </div>
+      <div class="hv-card c2">
+        <img class="thumb" src="https://picsum.photos/seed/xxww-anime02/400/600" width="400" height="600" alt="雾都档案第二季番剧竖版封面" loading="lazy">
+      </div>
+      <div class="hv-card c3">
+        <img class="thumb" src="https://picsum.photos/seed/xxww-anime03/400/600" width="400" height="600" alt="机械之心零号机番剧竖版封面" loading="lazy">
+      </div>
+      <span class="hv-tag t1">冬季新番</span>
+      <span class="hv-tag t2">口碑 9.1</span>
+      <span class="hv-tag t3">第 8 集已更</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 三栏门户布局 ===== -->
+<div class="layout">
+
+  <!-- 左栏：频道索引 -->
+  <aside class="side-left">
+    <div class="panel">
+      <div class="panel-title">频道索引</div>
+      <ul class="channel-list">
+        <li><a href="/#cats">奇幻冒险 <span class="cnt">216</span></a></li>
+        <li><a href="/#cats">悬疑推理 <span class="cnt">184</span></a></li>
+        <li><a href="/#cats">校园日常 <span class="cnt">231</span></a></li>
+        <li><a href="/#cats">机甲科幻 <span class="cnt">147</span></a></li>
+        <li><a href="/#cats">治愈系 <span class="cnt">168</span></a></li>
+        <li><a href="/#cats">热血少年 <span class="cnt">203</span></a></li>
+        <li><a href="/#cats">恋爱喜剧 <span class="cnt">176</span></a></li>
+        <li><a href="/#cats">国创专区 <span class="cnt">132</span></a></li>
+        <li><a href="/#latest">新番速递 <span class="cnt">38</span></a></li>
+        <li><a href="/#rank">口碑榜单 <span class="cnt">50</span></a></li>
+      </ul>
+    </div>
+    <div class="panel" style="margin-top:18px">
+      <div class="panel-title">本周数据</div>
+      <div class="stat-row"><span>新增条目</span><b>12</b></div>
+      <div class="stat-row"><span>更新集数</span><b>38</b></div>
+      <div class="stat-row"><span>完结归档</span><b>6</b></div>
+      <div class="stat-row"><span>社区讨论</span><b>2.4k</b></div>
+    </div>
+  </aside>
+
+  <!-- 中栏：主内容 -->
+  <main class="main-col">
+
+    <!-- 1. 主题领域概览 -->
+    <section class="overview" id="overview">
+      <h2>羞羞歪歪动漫频道在收录什么</h2>
+      <p>
+        羞羞歪歪动漫频道以<b>番剧条目</b>为核心组织内容，覆盖电视动画、网络短番、国创作品与剧场版四个大类。每个条目包含首播时间、集数、制作公司、类型标签与口碑分，方便按“类型—时长—更新节奏”三条线索筛选。当前冬季档共上线 <b>38 部</b> 新作，其中 TV 动画 21 部、短番 11 部、国创 6 部。
+      </p>
+      <p>
+        值得关注的方向有三类：一是<b>高完成度单季番</b>，如《雾都档案 第二季》延续第一季的双线叙事，12 集讲完一个完整案件；二是<b>长线连载</b>，如《星海拾遗》走周更路线，适合追更节奏稳定的观众；三是<b>短番合集</b>，单集 12 分钟以内，适合通勤与碎片时间。分类入口按奇幻、悬疑、校园、机甲等 12 个垂类展开，每个分类下都有具体的代表条目与更新记录。
+      </p>
+      <p>
+        对第一次接触这个频道的观众，建议先看<b>分类导航</b>确认自己偏好的类型，再进<b>精选推荐</b>对照具体条目名与看点，最后用<b>观看顺序指南</b>判断从哪一集、哪一季切入。全站条目按 2026 年 11 月 25 日的最新排期整理。
+      </p>
+    </section>
+
+    <!-- 2. 精选内容推荐 -->
+    <section id="picks">
+      <div class="section-head">
+        <span class="kicker">EDITOR'S PICKS</span>
+        <h2>精选番剧推荐</h2>
+        <p>按当前口碑与更新状态筛出的 9 部具体条目，含类型、看点与追更信息。</p>
+      </div>
+      <div class="filter-bar" role="group" aria-label="按类型筛选精选番剧">
+        <span class="flabel">类型筛选：</span>
+        <button class="filter-chip active" data-filter="all" type="button">全部</button>
+        <button class="filter-chip" data-filter="奇幻" type="button">奇幻</button>
+        <button class="filter-chip" data-filter="悬疑" type="button">悬疑</button>
+        <button class="filter-chip" data-filter="机甲" type="button">机甲</button>
+        <button class="filter-chip" data-filter="校园" type="button">校园</button>
+        <button class="filter-chip" data-filter="治愈" type="button">治愈</button>
+      </div>
+      <div class="card-grid" id="pickGrid">
+
+        <article class="card" data-type="奇幻">
+          <div class="card-cover">
+            <img src="https://picsum.photos/seed/xinghai-shiyi47/400/300" width="400" height="300" alt="星海拾遗番剧封面" loading="lazy">
+            <span class="type">奇幻</span>
+          </div>
+          <div class="card-body">
+            <h3>星海拾遗</h3>
+            <p class="desc">以“记忆打捞”为核心设定的周更番，主角在漂浮岛屿间收集散落记忆碎片，第 8 集揭开第一段主线伏笔。</p>
+            <div class="tags"><span>记忆设定</span><span>周更</span><span>双主角</span></div>
+            <div class="card-meta"><span class="hot">热度 9,240</span><span class="score">★ 9.1</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-type="悬疑">
+          <div class="card-cover">
+            <img src="https://picsum.photos/seed/wudu-dangan22/400/300" width="400" height="300" alt="雾都档案第二季番剧封面" loading="lazy">
+            <span class="type">悬疑</span>
+          </div>
+          <div class="card-body">
+            <h3>雾都档案 第二季</h3>
+            <p class="desc">12 集讲完一桩连环失踪案，采用“现在调查 + 十年前回忆”双线推进，第二季新增法医视角的物证推理段落。</p>
+            <div class="tags"><span>双线叙事</span><span>单元案件</span><span>已完结</span></div>
+            <div class="card-meta"><span class="hot">热度 8,760</span><span class="score">★ 9.3</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-type="机甲">
+          <div class="card-cover">
+            <img src="https://picsum.photos/seed/jixie-zhixin09/400/300" width="400" height="300" alt="机械之心零号机番剧封面" loading="lazy">
+            <span class="type">机甲</span>
+          </div>
+          <div class="card-body">
+            <h3>机械之心 零号机</h3>
+            <p class="desc">以驾驶舱内视角展开的机甲番，战斗镜头大量使用第一人称运镜，对机体结构与能源设定有较硬核的展示。</p>
+            <div class="tags"><span>第一人称</span><span>硬核设定</span><span>周更</span></div>
+            <div class="card-meta"><span class="hot">热度 7,980</span><span class="score">★ 8.8</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-type="校园">
+          <div class="card-cover">
+            <img src="https://picsum.photos/seed/qingkong-jiaoshi13/400/300" width="400" height="300" alt="晴空教室番剧封面" loading="lazy">
+            <span class="type">校园</span>
+          </div>
+          <div class="card-body">
+            <h3>晴空教室</h3>
+            <p class="desc">以社团重建为主线的校园群像，每两集聚焦一个成员，节奏轻快，适合作为新番入门的第一部。</p>
+            <div class="tags"><span>群像</span><span>社团</span><span>低成本入门</span></div>
+            <div class="card-meta"><span class="hot">热度 6,420</span><span class="score">★ 8.5</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-type="治愈">
+          <div class="card-cover">
+            <img src="https://picsum.photos/seed/wuye-shitang31/400/300" width="400" height="300" alt="午夜食堂物语番剧封面" loading="lazy">
+            <span class="type">治愈</span>
+          </div>
+          <div class="card-body">
+            <h3>午夜食堂物语</h3>
+            <p class="desc">单集 24 分钟的美食短篇集，每集一位客人一道菜，叙事重心在对话与料理过程，适合睡前观看。</p>
+            <div class="tags"><span>单元美食</span><span>慢节奏</span><span>完结</span></div>
+            <div class="card-meta"><span class="hot">热度 5,880</span><span class="score">★ 8.9</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-type="悬疑">
+          <div class="card-cover">
+            <img src="https://picsum.photos/seed/shizhong-binguan58/400/300" width="400" height="300" alt="时钟旅馆疑案番剧封面" loading="lazy">
+            <span class="type">悬疑</span>
+          </div>
+          <div class="card-body">
+            <h3>时钟旅馆疑案</h3>
+            <p class="desc">封闭空间推理番，8 名住客在停摆的旅馆中轮流接受询问，每集结尾给出一个可验证的时间线索。</p>
+            <div class="tags"><span>封闭空间</span><span>本格推理</span><span>短番</span></div>
+            <div class="card-meta"><span class="hot">热度 7,120</span><span class="score">★ 8.7</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-type="奇幻">
+          <div class="card-cover">
+            <img src="https://picsum.photos/seed/linyao-gongzhu64/400/300" width="400" height="300" alt="鳞妖公主番剧封面" loading="lazy">
+            <span class="type">奇幻</span>
+          </div>
+          <div class="card-body">
+            <h3>鳞妖公主</h3>
+            <p class="desc">国创奇幻番，以水族妖灵与人类城邦的贸易冲突为背景，美术上大量使用青绿色调与鳞片纹理。</p>
+            <div class="tags"><span>国创</span><span>妖灵设定</span><span>双周更</span></div>
+            <div class="card-meta"><span class="hot">热度 6,960</span><span class="score">★ 8.6</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-type="机甲">
+          <div class="card-cover">
+            <img src="https://picsum.photos/seed/guidao-lieche77/400/300" width="400" height="300" alt="轨道列车2099番剧封面" loading="lazy">
+            <span class="type">机甲</span>
+          </div>
+          <div class="card-body">
+            <h3>轨道列车 2099</h3>
+            <p class="desc">末日轨道都市背景下的机甲护卫队故事，战斗集中在列车外壁与站台，擅长用空间限制制造紧张感。</p>
+            <div class="tags"><span>末日都市</span><span>护卫队</span><span>周更</span></div>
+            <div class="card-meta"><span class="hot">热度 6,140</span><span class="score">★ 8.4</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-type="校园">
+          <div class="card-cover">
+            <img src="https://picsum.photos/seed/fangxue-houwu81/400/300" width="400" height="300" alt="放学后午睡部番剧封面" loading="lazy">
+            <span class="type">校园</span>
+          </div>
+          <div class="card-body">
+            <h3>放学后午睡部</h3>
+            <p class="desc">12 分钟短番，讲一个只为“找地方睡觉”而成立的社团，笑点来自场景错位，单集独立成篇。</p>
+            <div class="tags"><span>短番</span><span>喜剧</span><span>单集独立</span></div>
+            <div class="card-meta"><span class="hot">热度 5,520</span><span class="score">★ 8.2</span></div>
+          </div>
+        </article>
+
+      </div>
+      <div class="empty-tip" id="pickEmpty">当前筛选下没有匹配的番剧，试试切换其他类型或查看全部。</div>
+    </section>
+
+    <!-- 3. 最新更新 / 动态 -->
+    <section id="latest">
+      <div class="section-head">
+        <span class="kicker">UPDATE FEED</span>
+        <h2>最新更新与播出动态</h2>
+        <p>截至 2026 年 11 月 25 日的具体更新记录与排期变化。</p>
+      </div>
+      <ul class="updates">
+        <li><span class="time">今天 09:30</span><span class="name">星海拾遗 <em>第 8 集“打捞者的旧信”已上线</em></span><span class="ep">周更</span></li>
+        <li><span class="time">今天 08:10</span><span class="name">雾都档案 第二季 <em>全集 12 集完结归档，新增法医物证分集索引</em></span><span class="ep">完结</span></li>
+        <li><span class="time">昨天 21:10</span><span class="name">机械之心 零号机 <em>第 6 集更新，首次出现双机协同作战段落</em></span><span class="ep">周更</span></li>
+        <li><span class="time">昨天 18:40</span><span class="name">晴空教室 <em>第 9 集更新，社团重建线进入收尾</em></span><span class="ep">周更</span></li>
+        <li><span class="time">11 月 23 日</span><span class="name">时钟旅馆疑案 <em>第 5 集上线，时间线索表同步更新</em></span><span class="ep">短番</span></li>
+        <li><span class="time">11 月 22 日</span><span class="name">鳞妖公主 <em>第 4 集上线，水族城邦地图新增两处地名</em></span><span class="ep">双周更</span></li>
+        <li><span class="time">11 月 20 日</span><span class="name">轨道列车 2099 <em>第 7 集延后一周，官方公布改档至 11 月 27 日</em></span><span class="ep">改档</span></li>
+        <li><span class="time">11 月 19 日</span><span class="name">午夜食堂物语 <em>特别篇“冬夜的关东煮”上线，单集 28 分钟</em></span><span class="ep">特别篇</span></li>
+        <li><span class="time">11 月 17 日</span><span class="name">放学后午睡部 <em>第 10 集更新，本季最后两集确定连播</em></span><span class="ep">短番</span></li>
+        <li><span class="time">11 月 15 日</span><span class="name">记忆打捞者外传 <em>新条目建档，作为《星海拾遗》的支线短篇</em></span><span class="ep">新建档</span></li>
+      </ul>
+    </section>
+
+    <!-- 4. 分类入口 -->
+    <section id="cats">
+      <div class="section-head">
+        <span class="kicker">CATEGORIES</span>
+        <h2>按类型找番：12 个分类入口</h2>
+        <p>分类名称对应用户最常搜索的类型词，点击进入对应条目列表。</p>
+      </div>
+      <div class="cat-grid">
+        <a class="cat-item" href="/#picks"><span class="cnum">216 部</span><b>奇幻冒险</b><small>异世界、妖灵、冒险团</small></a>
+        <a class="cat-item" href="/#picks"><span class="cnum">184 部</span><b>悬疑推理</b><small>本格、社会派、封闭空间</small></a>
+        <a class="cat-item" href="/#picks"><span class="cnum">231 部</span><b>校园日常</b><small>群像、社团、青春</small></a>
+        <a class="cat-item" href="/#picks"><span class="cnum">147 部</span><b>机甲科幻</b><small>硬核设定、末日都市</small></a>
+        <a class="cat-item" href="/#picks"><span class="cnum">168 部</span><b>治愈系</b><small>美食、慢节奏、单元剧</small></a>
+        <a class="cat-item" href="/#picks"><span class="cnum">203 部</span><b>热血少年</b><small>成长、竞技、战斗</small></a>
+        <a class="cat-item" href="/#picks"><span class="cnum">176 部</span><b>恋爱喜剧</b><small>校园恋爱、误会流</small></a>
+        <a class="cat-item" href="/#picks"><span class="cnum">132 部</span><b>国创专区</b><small>妖灵、武侠、都市奇幻</small></a>
+        <a class="cat-item" href="/#latest"><span class="cnum">38 部</span><b>新番速递</b><small>本季首播与排期变动</small></a>
+        <a class="cat-item" href="/#rank"><span class="cnum">50 部</span><b>口碑榜单</b><small>按评分与讨论热度排序</small></a>
+        <a class="cat-item" href="/#guide"><span class="cnum">指南</span><b>补番路线</b><small>按顺序与时长切入</small></a>
+        <a class="cat-item" href="/#faq"><span class="cnum">问答</span><b>观看答疑</b><small>更新频率、类型区别</small></a>
+      </div>
+    </section>
+
+    <!-- 5. 深度解析 -->
+    <section id="deep">
+      <div class="deep">
+        <h2>深度解析：羞羞歪歪动漫频道的类型差异与选择逻辑</h2>
+        <p class="lead">从具体条目的结构差异出发，说明为什么同样是“一季 12 集”，有的适合一次看完，有的必须跟着周更追。</p>
+
+        <h3>单季完结番与长线连载的节奏差异</h3>
+        <p>
+          <b>单季完结番</b>的核心特征是“一季讲完一个完整弧线”。《雾都档案 第二季》就是典型：12 集对应一桩连环失踪案，第 1 集抛出问题，第 11 集收束线索，第 12 集给结论。这类条目的观看成本可预估——投入约 5 小时就能得到一个完整故事，适合不想被长期追更绑定的观众。
+        </p>
+        <p>
+          <b>长线连载</b>则相反。《星海拾遗》走周更路线，每集推进一段记忆打捞任务，但主线伏笔分散在第 3、5、8 集等多个位置。这类条目更适合按周跟看，因为单集内部的悬念设计依赖“下一集才揭晓”的期待感；如果一次性连看，反而会削弱这种节奏。
+        </p>
+        <ul>
+          <li><b>单季完结</b>：12 集左右，故事闭环，适合周末集中观看。</li>
+          <li><b>周更连载</b>：24 集以上，主线跨集，适合固定时间追更。</li>
+          <li><b>短番合集</b>：单集 12 分钟内，单集独立，适合碎片时间。</li>
+        </ul>
+
+        <h3>悬疑番与治愈番的评判维度不同</h3>
+        <p>
+          评价一部悬疑番，关键看“线索是否可验证”。《时钟旅馆疑案》每集结尾会给一个时间线索，观众可以在下一集之前自行推理，这类设计让讨论区有实际可聊的内容。而评价治愈番，看的是“单集是否自洽”。《午夜食堂物语》每集一位客人一道菜，即使跳集观看也不影响理解，评判重点是料理过程与对话是否自然。
+        </p>
+        <table class="compare">
+          <thead>
+            <tr><th>维度</th><th>悬疑推理</th><th>治愈系</th><th>机甲科幻</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>核心看点</td><td>线索可验证性</td><td>单集自洽与氛围</td><td>设定一致性与战斗设计</td></tr>
+            <tr><td>跳集风险</td><td>高，会错过线索</td><td>低，单集独立</td><td>中，设定需连续理解</td></tr>
+            <tr><td>推荐观看方式</td><td>按顺序，边看边记</td><td>睡前随机单集</td><td>按顺序，关注机体设定</td></tr>
+            <tr><td>代表条目</td><td>时钟旅馆疑案</td><td>午夜食堂物语</td><td>机械之心 零号机</td></tr>
+          </tbody>
+        </table>
+
+        <h3>国创与日番在更新节奏上的实际区别</h3>
+        <p>
+          <b>国创作品</b>常采用双周更或分段上线，《鳞妖公主》就是双周更，每集 22 分钟，中间会插入制作特辑。这种节奏意味着追更周期更长，但单集信息密度通常更高。<b>日番</b>多为严格周更，单集 24 分钟，节奏更均匀。选择时可以先确认自己的追更耐心：能接受两周等一集的，国创的完整度往往更好；希望每周都有新内容的，周更日番更稳。
+        </p>
+        <ul>
+          <li><b>双周更国创</b>：单集信息量大，适合愿意等待的观众。</li>
+          <li><b>严格周更日番</b>：节奏均匀，适合建立固定追番习惯。</li>
+          <li><b>分段上线短番</b>：一次放出 3—4 集，适合周末一口气看完。</li>
+        </ul>
+
+        <h3>如何判断一部番值不值得投入时间</h3>
+        <p>
+          一个实用的判断顺序是：先看<b>类型是否对口</b>，再看<b>集数与更新状态</b>，最后看<b>前两集的完成度</b>。前两集通常决定了制作水准与叙事节奏——如果第 1 集就把核心设定讲清楚，第 2 集能给出一个可独立成立的小事件，这部番的完成度一般不会差。反之，如果前两集仍在大量铺设定而没有具体事件，后续很可能节奏拖沓。
+        </p>
+        <p>
+          另一个维度是<b>口碑分的分布</b>。评分 8.5 以上且讨论量稳定的条目，通常有较扎实的类型完成度；评分波动大的条目，往往存在“前期惊艳、后期收不住”的问题。参考《轨道列车 2099》的讨论区，前 4 集评分 8.9，第 6 集后回落到 8.4，原因集中在战斗场景重复。这类信息比单一总分更有参考价值。
+        </p>
+      </div>
+    </section>
+
+    <!-- 6. 体验指南 -->
+    <section id="guide">
+      <div class="section-head">
+        <span class="kicker">VIEWING GUIDE</span>
+        <h2>观看路径：从哪一部开始看</h2>
+        <p>按投入时间和类型偏好给出四个具体切入顺序。</p>
+      </div>
+      <div class="guide-steps">
+        <div class="gstep">
+          <div class="num">1</div>
+          <div>
+            <h3>先确认自己能投入多少时间</h3>
+            <p>单集 12 分钟以内的短番（如《放学后午睡部》《时钟旅馆疑案》）适合通勤；单集 24 分钟的标准番（如《晴空教室》）适合晚间；12 集完结番（如《雾都档案 第二季》）适合周末集中看。</p>
+          </div>
+        </div>
+        <div class="gstep">
+          <div class="num">2</div>
+          <div>
+            <h3>用类型标签缩小到 3 部以内</h3>
+            <p>在分类入口里选一个主类型，例如悬疑，再从该类型下挑 2—3 部具体条目，对比它们的集数与更新状态。悬疑番优先选已完结的，避免追更时忘记线索。</p>
+          </div>
+        </div>
+        <div class="gstep">
+          <div class="num">3</div>
+          <div>
+            <h3>看前两集判断制作水准</h3>
+            <p>重点看第 1 集是否讲清核心设定、第 2 集是否有独立成立的小事件。《星海拾遗》第 1 集用 3 分钟交代记忆打捞规则，第 2 集完成一次完整打捞任务，属于完成度较高的开场。</p>
+          </div>
+        </div>
+        <div class="gstep">
+          <div class="num">4</div>
+          <div>
+            <h3>按更新状态决定追更还是补番</h3>
+            <p>已完结条目可以自由安排进度；周更条目建议固定时间跟看，例如《机械之心 零号机》每周二更新，跟看能保持对机体设定的连续理解。双周更的国创则适合先攒 3 集再看。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section id="faq">
+      <div class="section-head">
+        <span class="kicker">FAQ</span>
+        <h2>常见问题</h2>
+        <p>围绕更新频率、类型区别与入门选择的 6 个具体问答。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>羞羞歪歪动漫频道的周更番一般什么时候更新？</summary>
+          <div class="ans">周更番按固定星期更新，例如《星海拾遗》每周二上午更新，《机械之心 零号机》每周一晚间更新。双周更的国创如《鳞妖公主》固定在隔周周五。条目页会标注具体更新日与最近一次更新时间。</div>
+        </details>
+        <details>
+          <summary>《雾都档案》第一季和第二季需要按顺序看吗？</summary>
+          <div class="ans">建议按顺序。第二季虽然是一桩新的失踪案，但多次引用第一季的人物关系与十年前回忆线。直接看第二季能理解案件本身，但会错过<b>法医角色</b>的来历与两季之间的时间衔接。</div>
+        </details>
+        <details>
+          <summary>第一次接触这个频道，从哪部番开始看比较好？</summary>
+          <div class="ans">如果偏好轻松入门，从《晴空教室》或《放学后午睡部》开始，单集独立、门槛低；如果喜欢推理，从已完结的《雾都档案 第二季》开始，故事闭环；如果喜欢硬核设定，从《机械之心 零号机》开始，但需要接受较密集的设定说明。</div>
+        </details>
+        <details>
+          <summary>悬疑番和推理番有什么区别？</summary>
+          <div class="ans">悬疑番侧重氛围与信息隐藏，观众跟着主角一起不安；推理番侧重线索的可验证性，观众可以在揭晓前自行推理。《时钟旅馆疑案》属于后者，每集结尾给出可验证的时间线索；《雾都档案》更偏向前者，氛围与人物关系占更大比重。</div>
+        </details>
+        <details>
+          <summary>短番和标准番在观看体验上有什么不同？</summary>
+          <div class="ans">短番单集 12 分钟以内，多为单集独立，适合碎片时间，但主线推进较慢；标准番单集 24 分钟，能容纳完整的事件起承转合，更适合连续观看。12 集短番的总时长约等于 6 集标准番。</div>
+        </details>
+        <details>
+          <summary>国创番和日番的更新节奏差别大吗？</summary>
+          <div class="ans">差别主要在周期。国创常见双周更或分段上线，单集信息密度较高；日番多为严格周更，节奏更均匀。选择时可以先看条目标注的更新周期，再决定是否适合自己固定追更。</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8. 用户评论 -->
+    <section id="comments">
+      <div class="section-head">
+        <span class="kicker">COMMUNITY</span>
+        <h2>观众评论</h2>
+        <p>来自社区的具体条目讨论，含中性评价。</p>
+      </div>
+      <div class="comment-grid">
+        <div class="comment"><div class="u"><span class="avatar" style="background:#ff8fb1">夜</span><span class="uname">夜航船</span><span class="rate">★ 9.1</span></div><p>《星海拾遗》第 8 集那封旧信把前面三集的伏笔串起来了，<b>记忆打捞</b>的规则也讲得更清楚，值得回看第 3 集。</p></div>
+        <div class="comment"><div class="u"><span class="avatar" style="background:#5ee0d0">雾</span><span class="uname">雾都常客</span><span class="rate">★ 9.3</span></div><p>《雾都档案 第二季》完结了，法医物证那条线比第一季扎实，但结尾收得略快，<b>第 11 集</b>的信息量有点挤。</p></div>
+        <div class="comment"><div class="u"><span class="avatar" style="background:#8b7cff">机</span><span class="uname">机舱观察员</span><span class="rate">★ 8.8</span></div><p>《机械之心 零号机》第一人称运镜很带感，不过第 6 集双机协同那段战斗分镜有点乱，需要暂停看清机体位置。</p></div>
+        <div class="comment"><div class="u"><span class="avatar" style="background:#ffc861">晴</span><span class="uname">晴空一角</span><span class="rate">★ 8.5</span></div><p>《晴空教室》群像写得舒服，每两集聚焦一个成员的做法很适合下饭，就是主线推进偏慢。</p></div>
+        <div class="comment"><div class="u"><span class="avatar" style="background:#ff5c8a">食</span><span class="uname">深夜食堂客</span><span class="rate">★ 8.9</span></div><p>《午夜食堂物语》特别篇的关东煮那段看饿了，<b>单集独立</b>这点很友好，睡前随便点一集都能看。</p></div>
+        <div class="comment"><div class="u"><span class="avatar" style="background:#5ee0d0">钟</span><span class="uname">钟表匠</span><span class="rate">★ 8.7</span></div><p>《时钟旅馆疑案》第 5 集的时间线索我推出来了，但动机部分还是有点牵强，希望后三集能补上。</p></div>
+        <div class="comment"><div class="u"><span class="avatar" style="background:#8b7cff">鳞</span><span class="uname">鳞片收藏家</span><span class="rate">★ 8.6</span></div><p>《鳞妖公主》美术真的强，青绿色调和鳞片纹理很统一，就是双周更等得有点久。</p></div>
+        <div class="comment"><div class="u"><span class="avatar" style="background:#ff8fb1">轨</span><span class="uname">末班车乘客</span><span class="rate">★ 8.4</span></div><p>《轨道列车 2099》改档到 11 月 27 日了，前 6 集战斗场景确实有点重复，希望改档后能调整节奏。</p></div>
+        <div class="comment"><div class="u"><span class="avatar" style="background:#ffc861">午</span><span class="uname">午睡部部长</span><span class="rate">★ 8.2</span></div><p>《放学后午睡部》笑点全靠场景错位，第 10 集在图书馆那段笑出声，短番就该这样轻松。</p></div>
+        <div class="comment"><div class="u"><span class="avatar" style="background:#5ee0d0">补</span><span class="uname">补番进度条</span><span class="rate">★ 8.6</span></div><p>按观看路径从《雾都档案》开始补的，12 集一个周末看完，确实比追更舒服，不用记一周的线索。</p></div>
+        <div class="comment"><div class="u"><span class="avatar" style="background:#8b7cff">类</span><span class="uname">类型控</span><span class="rate">★ 8.4</span></div><p>分类做得挺细，悬疑和推理分开列这点好评，找《时钟旅馆疑案》这种本格向的方便很多。</p></div>
+        <div class="comment"><div class="u"><span class="avatar" style="background:#ff5c8a">追</span><span class="uname">追更不睡觉</span><span class="rate">★ 8.3</span></div><p>《星海拾遗》周更节奏很稳，但希望后面别拖，第 8 集刚起势，接下来两集很关键。</p></div>
+        <div class="comment"><div class="u"><span class="avatar" style="background:#ffc861">硬</span><span class="uname">硬核设定党</span><span class="rate">★ 8.8</span></div><p>《机械之心 零号机》的能源设定表做得不错，但动画里对能源消耗的表现不够直观，得靠设定集补。</p></div>
+        <div class="comment"><div class="u"><span class="avatar" style="background:#5ee0d0">国</span><span class="uname">国创观察</span><span class="rate">★ 8.5</span></div><p>《鳞妖公主》双周更但单集信息量确实大，水族城邦地图更新后人物关系更清楚了，愿意等。</p></div>
+        <div class="comment"><div class="u"><span class="avatar" style="background:#8b7cff">新</span><span class="uname">新番收割机</span><span class="rate">★ 8.0</span></div><p>冬季档整体质量还行，但校园日常类有点同质化，希望下一季能多点差异化的设定。</p></div>
+        <div class="comment"><div class="u"><span class="avatar" style="background:#ff8fb1">评</span><span class="uname">评分参考系</span><span class="rate">★ 8.7</span></div><p>《雾都档案》第二季评分比第一季高，但我觉得第一季的人物更立体，第二季偏重案件结构了。</p></div>
+      </div>
+    </section>
+
+    <!-- 9. 相关资讯 -->
+    <section id="news">
+      <div class="section-head">
+        <span class="kicker">NEWS</span>
+        <h2>相关资讯</h2>
+        <p>2026 年 11 月内的具体排期与条目动态。</p>
+      </div>
+      <div class="news-list">
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/xxww-news01/600/400" width="600" height="400" alt="星海拾遗第8集上线资讯配图" loading="lazy">
+          <div><div class="date">2026-11-25</div><h3>《星海拾遗》第 8 集上线，记忆打捞规则首次完整说明</h3><p>本集用一段旧信交代打捞者的来历，同时补全前三集分散的伏笔，讨论区已出现时间线整理帖。</p></div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/xxww-news02/600/400" width="600" height="400" alt="雾都档案第二季完结资讯配图" loading="lazy">
+          <div><div class="date">2026-11-25</div><h3>《雾都档案 第二季》12 集完结归档，法医物证分集索引上线</h3><p>第二季以法医视角补全物证推理段落，完结后新增按案件分集的索引页，方便按案回看。</p></div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/xxww-news03/600/400" width="600" height="400" alt="轨道列车2099改档资讯配图" loading="lazy">
+          <div><div class="date">2026-11-20</div><h3>《轨道列车 2099》第 7 集改档至 11 月 27 日，官方说明制作调整</h3><p>制作方表示战斗场景需重新调整分镜，第 7 集延后一周，后续集数按原计划顺延。</p></div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/xxww-news04/600/400" width="600" height="400" alt="鳞妖公主双周更资讯配图" loading="lazy">
+          <div><div class="date">2026-11-18</div><h3>《鳞妖公主》确认维持双周更，第 4 集新增水族城邦地图</h3><p>官方公布后半季仍为双周更，第 4 集随片更新一张城邦关系地图，标注两处新地名。</p></div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/xxww-news05/600/400" width="600" height="400" alt="午夜食堂物语特别篇资讯配图" loading="lazy">
+          <div><div class="date">2026-11-16</div><h3>《午夜食堂物语》特别篇“冬夜的关东煮”上线，单集 28 分钟</h3><p>特别篇延续单元美食结构，单集加长至 28 分钟，新增两段客人对话与一道冬季限定料理。</p></div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/xxww-news06/600/400" width="600" height="400" alt="记忆打捞者外传建档资讯配图" loading="lazy">
+          <div><div class="date">2026-11-15</div><h3>《记忆打捞者外传》新建档，作为《星海拾遗》支线短篇</h3><p>外传共 4 集，单集 15 分钟，聚焦主线之外的一位打捞者，已录入奇幻分类并标注支线关系。</p></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10. 相关推荐 -->
+    <section id="related">
+      <div class="section-head">
+        <span class="kicker">RELATED</span>
+        <h2>相关推荐方向</h2>
+        <p>延伸内容方向与具体条目，区别于当下热门推荐。</p>
+      </div>
+      <div class="tag-index">
+        <a href="/#picks">记忆打捞者外传</a>
+        <a href="/#picks">封闭空间推理番</a>
+        <a href="/#picks">第一人称机甲战斗</a>
+        <a href="/#picks">单元美食短篇</a>
+        <a href="/#picks">国创妖灵设定</a>
+        <a href="/#guide">12 集完结番补番路线</a>
+        <a href="/#guide">短番碎片时间片单</a>
+        <a href="/#deep">双线叙事结构解析</a>
+      </div>
+    </section>
+
+    <!-- 11. 补充板块：热门榜单 -->
+    <section id="rank">
+      <div class="section-head">
+        <span class="kicker">RANKING</span>
+        <h2>本周热门榜单</h2>
+        <p>按讨论热度与评分综合排序，统计截至 2026 年 11 月 25 日。</p>
+      </div>
+      <div class="rank-list">
+        <div class="rank-item"><span class="rk">1</span><span class="rn">雾都档案 第二季<small>悬疑 · 已完结 · 12 集</small></span><span class="rv">9.3</span></div>
+        <div class="rank-item"><span class="rk">2</span><span class="rn">星海拾遗<small>奇幻 · 周更 · 第 8 集</small></span><span class="rv">9.1</span></div>
+        <div class="rank-item"><span class="rk">3</span><span class="rn">午夜食堂物语<small>治愈 · 完结 + 特别篇</small></span><span class="rv">8.9</span></div>
+        <div class="rank-item"><span class="rk">4</span><span class="rn">机械之心 零号机<small>机甲 · 周更 · 第 6 集</small></span><span class="rv">8.8</span></div>
+        <div class="rank-item"><span class="rk">5</span><span class="rn">时钟旅馆疑案<small>悬疑 · 短番 · 第 5 集</small></span><span class="rv">8.7</span></div>
+        <div class="rank-item"><span class="rk">6</span><span class="rn">鳞妖公主<small>国创 · 双周更 · 第 4 集</small></span><span class="rv">8.6</span></div>
+        <div class="rank-item"><span class="rk">7</span><span class="rn">晴空教室<small>校园 · 周更 · 第 9 集</small></span><span class="rv">8.5</span></div>
+        <div class="rank-item"><span class="rk">8</span><span class="rn">轨道列车 2099<small>机甲 · 改档 11 月 27 日</small></span><span class="rv">8.4</span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 右栏：辅助 -->
+  <aside class="side-right">
+    <div class="side-card">
+      <h3>本周更新时间线</h3>
+      <ul class="mini-list">
+        <li><a href="/#latest">今天 09:30 · 星海拾遗 第 8 集</a><div class="mdate">奇幻 / 周更</div></li>
+        <li><a href="/#latest">今天 08:10 · 雾都档案 第二季 完结</a><div class="mdate">悬疑 / 归档</div></li>
+        <li><a href="/#latest">昨天 21:10 · 机械之心 第 6 集</a><div class="mdate">机甲 / 周更</div></li>
+        <li><a href="/#latest">11 月 23 日 · 时钟旅馆疑案 第 5 集</a><div class="mdate">悬疑 / 短番</div></li>
+        <li><a href="/#latest">11 月 22 日 · 鳞妖公主 第 4 集</a><div class="mdate">国创 / 双周更</div></li>
+      </ul>
+    </div>
+    <div class="side-card">
+      <h3>热门标签</h3>
+      <div class="tags">
+        <span>记忆设定</span><span>双线叙事</span><span>本格推理</span><span>第一人称</span>
+        <span>单元美食</span><span>国创妖灵</span><span>社团群像</span><span>末日都市</span>
+        <span>短番</span><span>双周更</span>
+      </div>
+    </div>
+    <div class="side-card">
+      <h3>类型速查</h3>
+      <ul class="mini-list">
+        <li><a href="/#cats">奇幻冒险 · 216 部</a></li>
+        <li><a href="/#cats">悬疑推理 · 184 部</a></li>
+        <li><a href="/#cats">校园日常 · 231 部</a></li>
+        <li><a href="/#cats">机甲科幻 · 147 部</a></li>
+        <li><a href="/#cats">治愈系 · 168 部</a></li>
+        <li><a href="/#cats">国创专区 · 132 部</a></li>
+      </ul>
+    </div>
+  </aside>
+
+</div>
+
+<!-- ===== 页尾 ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+            <rect x="2" y="2" width="36" height="36" rx="11" fill="none" stroke="#8b7cff" stroke-width="1.6"/>
+            <circle cx="20" cy="17" r="6.2" fill="none" stroke="#ff8fb1" stroke-width="1.8"/>
+            <path d="M14 30c1.6-4.4 9.6-4.4 12 0" fill="none" stroke="#5ee0d0" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="20" cy="17" r="2" fill="#ff5c8a"/>
+          </svg>
+          <span class="brand-text">51 羞羞歪歪<span>动漫</span></span>
+        </div>
+        <p>羞羞歪歪动漫频道，按类型与更新节奏整理番剧条目，帮助观众判断先看什么、何时更新、如何补番。</p>
+      </div>
+      <div class="footer-col">
+        <h4>内容导航</h4>
+        <a href="/#picks">精选推荐</a>
+        <a href="/#latest">最新更新</a>
+        <a href="/#cats">分类导航</a>
+        <a href="/#rank">热门榜单</a>
+      </div>
+      <div class="footer-col">
+        <h4>类型专区</h4>
+        <a href="/#cats">奇幻冒险</a>
+        <a href="/#cats">悬疑推理</a>
+        <a href="/#cats">机甲科幻</a>
+        <a href="/#cats">国创专区</a>
+      </div>
+      <div class="footer-col">
+        <h4>帮助与讨论</h4>
+        <a href="/#guide">观看路径</a>
+        <a href="/#deep">深度解析</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#comments">观众评论</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 51 羞羞歪歪动漫 · 条目信息按 2026-11-25 整理</span>
+      <span class="disclaimer">本站为内容整理与推荐页面，条目评分、热度与更新时间为示例数据，具体以各作品官方发布为准。</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // 移动端菜单
+  var menuBtn = document.getElementById('menuBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  if(menuBtn && mobileNav){
+    menuBtn.addEventListener('click', function(){
+      var open = mobileNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    mobileNav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){
+        mobileNav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  // 精选番剧类型筛选
+  var chips = document.querySelectorAll('.filter-chip');
+  var cards = document.querySelectorAll('#pickGrid .card');
+  var emptyTip = document.getElementById('pickEmpty');
+
+  function applyFilter(type){
+    var visible = 0;
+    cards.forEach(function(card){
+      var match = (type === 'all') || (card.getAttribute('data-type') === type);
+      card.style.display = match ? '' : 'none';
+      if(match) visible++;
+    });
+    if(emptyTip) emptyTip.classList.toggle('show', visible === 0);
+  }
+
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      applyFilter(chip.getAttribute('data-filter'));
+    });
+  });
+
+  // 站内搜索：筛选精选卡片 + 高亮跳转
+  var searchInput = document.getElementById('searchInput');
+  if(searchInput){
+    searchInput.addEventListener('input', function(){
+      var q = this.value.trim().toLowerCase();
+      if(!q){
+        chips.forEach(function(c){ c.classList.remove('active'); });
+        document.querySelector('.filter-chip[data-filter="all"]').classList.add('active');
+        applyFilter('all');
+        return;
+      }
+      var visible = 0;
+      cards.forEach(function(card){
+        var text = card.textContent.toLowerCase();
+        var match = text.indexOf(q) !== -1;
+        card.style.display = match ? '' : 'none';
+        if(match) visible++;
+      });
+      if(emptyTip) emptyTip.classList.toggle('show', visible === 0);
+    });
+  }
+
+  // 导航高亮（滚动监听）
+  var navLinks = document.querySelectorAll('.nav-main a');
+  var sections = [];
+  navLinks.forEach(function(a){
+    var href = a.getAttribute('href');
+    if(href && href.indexOf('/#') === 0){
+      var id = href.slice(2);
+      var el = document.getElementById(id);
+      if(el) sections.push({link:a, el:el});
+    }
+  });
+  if('IntersectionObserver' in window && sections.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          navLinks.forEach(function(l){ l.classList.remove('active'); });
+          var hit = sections.find(function(s){ return s.el === en.target; });
+          if(hit) hit.link.classList.add('active');
+        }
+      });
+    }, {rootMargin:'-120px 0px -60% 0px', threshold:0});
+    sections.forEach(function(s){ io.observe(s.el); });
+  }
+})();
+</script>
+</body>
+          </html>
